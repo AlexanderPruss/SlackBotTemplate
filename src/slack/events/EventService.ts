@@ -25,7 +25,11 @@ class EventService {
                 headers: {
                     Authorization: this.config.botSecret
                 }
-            });
+            }).then(function (response) {
+            console.log("Response sent successfully.");
+        }).catch(function (error) {
+            console.error(`Error from Slack: ${error}.`)
+        });
     }
 
 }

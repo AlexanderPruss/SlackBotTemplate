@@ -1,5 +1,6 @@
 import * as Router from 'koa-router';
 import eventService, {IncomingSlackEvent} from "./EventService";
+import slackVerifier from "../RequestVerifier";
 
 /**
  * Routes incoming Slack events. Due to how the Slack API works, this router has to deal with not just "real" events,
@@ -8,12 +9,8 @@ import eventService, {IncomingSlackEvent} from "./EventService";
 class EventRouter {
 
     public addRoutes(router: Router): Router {
-        router.get("/wut", async (ctx) => {
-            console.log("wut");
-            ctx.response.status = 200;
-        });
-        // router.post('/slack/events', slackVerifier.requestVerifier(), async (ctx) => {
-        router.post('/slack/events', async (ctx) => {
+
+         router.post('/slack/events', slackVerifier.requestVerifier(), async (ctx) => {
 
                 console.log("woo");
 
