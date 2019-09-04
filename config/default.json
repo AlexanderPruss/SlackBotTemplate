@@ -1,0 +1,9 @@
+{
+  "slack": {
+    "appId": "foobar",
+    "clientId": "Clever fake entry",
+    "clientSecret": "Cleverer fake entry",
+    "signingSecret": "'Cleverer' looks like a fake word, but it isn't",
+    "botSecret" : "Beep boop I'm a bot"
+  }
+}

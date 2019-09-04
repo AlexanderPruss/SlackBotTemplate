@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+config/dev.json
+config/production.json
+config/circleci.json
+dist/
+.DS_Store
