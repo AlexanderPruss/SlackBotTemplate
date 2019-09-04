@@ -10,13 +10,12 @@ class EventService {
 
     public async handleEvent(event: EventData) {
         console.log("Handling event");
-        console.log(event.channel);
-        this.respondWithMessage("message", event.channel);
+        await this.respondWithMessage("message", event.channel);
     }
 
     public async respondWithMessage(message: string, channel: string) {
         console.log("Sending response message.");
-        axios.post("https://slack.com/api/chat.postMessage",
+        await axios.post("https://slack.com/api/chat.postMessage",
             {
                 text: message,
                 channel: channel

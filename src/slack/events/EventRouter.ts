@@ -10,7 +10,7 @@ class EventRouter {
 
     public addRoutes(router: Router): Router {
 
-         router.post('/slack/events', slackVerifier.requestVerifier(), async (ctx) => {
+        router.post('/slack/events', slackVerifier.requestVerifier(), async (ctx) => {
 
                 console.log("woo");
 
@@ -20,9 +20,8 @@ class EventRouter {
                     return;
                 }
 
-
                 //Else, respond immediately with a 200 (as requested by the Slack Event API.)
-                //Do the work of processing the event in a separate thread.
+                //Do the work of processing the event in a separate 'thread'.
                 ctx.response.status = 200;
                 let slackEvent: IncomingSlackEvent = ctx.request.body;
                 if (slackEvent.event == null || slackEvent.event.text == null || slackEvent.event.channel == null) {
@@ -31,6 +30,7 @@ class EventRouter {
                 }
 
                 eventService.handleEvent(slackEvent.event);
+                return "woo";
             }
         );
 
